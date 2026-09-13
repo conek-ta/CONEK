@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Conek | Vive, trabaja, invierte y descubre Perú</title>
+
+    <meta name="description" content="Conek conecta personas, empresas e inversiones con oportunidades en Perú. Vive y trabaja, negocios e inversiones, turismo y experiencias.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #123c69;
+            --secondary: #1d6fa5;
+            --accent: #f2a900;
+            --dark: #102a43;
+            --light: #f7f9fc;
+            --white: #ffffff;
+            --gray: #667085;
+            --border: #e4e7ec;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            width: 100%;
+            background: rgba(255,255,255,0.97);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1250px;
+            margin: auto;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .language-select {
+            border: 1px solid var(--border);
+            padding: 9px 12px;
+            border-radius: 8px;
+            background: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 680px;
+            background:
+                linear-gradient(
+                    rgba(10, 39, 66, 0.75),
+                    rgba(10, 39, 66, 0.72)
+                ),
+                url("https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=2000&q=85")
+                center/cover no-repeat;
+
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 1250px;
+            width: 100%;
+            margin: auto;
+            padding: 70px 25px;
+        }
+
+        .hero-content h1 {
+            max-width: 800px;
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent);
+        }
+
+        .hero-content p {
+            max-width: 700px;
+            font-size: 20px;
+            color: #eef4f8;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #17202a;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            opacity: 0.92;
+        }
+
+        .btn-outline {
+            border: 1px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        /* INTRO */
+
+        .intro {
+            max-width: 900px;
+            margin: auto;
+            padding: 100px 25px 70px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            color: var(--secondary);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .intro h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            color: var(--gray);
+        }
+
+        /* PRODUCTS */
+
+        .products {
+            background: var(--light);
+            padding: 90px 25px;
+        }
+
+        .section-container {
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .product-image {
+            height: 230px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .product-number {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .product-content h3 {
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+
+        .product-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .product-list {
+            list-style: none;
+            margin-bottom: 30px;
+            flex: 1;
+        }
+
+        .product-list li {
+            margin-bottom: 9px;
+            font-size: 14px;
+        }
+
+        .product-list li::before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .product-link {
+            display: inline-block;
+            color: var(--secondary);
+            font-weight: 800;
+        }
+
+        .product-link:hover {
+            text-decoration: underline;
+        }
+
+        /* QUIENES SOMOS */
+
+        .about {
+            padding: 100px 25px;
+            background: white;
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .about-intro {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 60px;
+        }
+
+        .about-intro h2 {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .about-intro p {
+            color: var(--gray);
+            font-size: 18px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .about-card {
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 40px;
+        }
+
+        .about-card h3 {
+            font-size: 27px;
+            margin-bottom: 18px;
+            color: var(--primary);
+        }
+
+        .about-card p {
+            color: var(--gray);
+            font-size: 16px;
+        }
+
+        /* VIVE Y TRABAJA */
+
+        .feature {
+            padding: 100px 25px;
+        }
+
+        .feature-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .feature-image {
+            min-height: 480px;
+            border-radius: 20px;
+            background:
+                url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80")
+                center/cover;
+        }
+
+        .feature-text h2 {
+            font-size: 45px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .feature-text p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .feature-points {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .feature-points li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .feature-points li strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        /* NEGOCIOS */
+
+        .business {
+            background: var(--dark);
+            color: white;
+            padding: 100px 25px;
+        }
+
+        .business-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .business h2 {
+            font-size: 45px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .business p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .business-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .business-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .business-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .business-image {
+            min-height: 450px;
+            border-radius: 20px;
+            background:
+                url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80")
+                center/cover;
+        }
+
+        /* TURISMO */
+
+        .tourism {
+            padding: 100px 25px;
+        }
+
+        .tourism-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .tourism-image {
+            min-height: 450px;
+            border-radius: 20px;
+            background:
+                url("https://images.unsplash.com/photo-1531968455001-5c5272a41129?auto=format&fit=crop&w=1200&q=80")
+                center/cover;
+        }
+
+        .tourism-text h2 {
+            font-size: 45px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .tourism-text p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* REGISTRO / CUESTIONARIO */
+
+        .register {
+            background: var(--light);
+            padding: 90px 25px;
+            text-align: center;
+        }
+
+        .register-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .register h2 {
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        .register p {
+            color: var(--gray);
+            max-width: 650px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+        }
+
+        /* CTA */
+
+        .cta {
+            padding: 100px 25px;
+            background: #eef5f9;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: auto auto 30px;
+            color: var(--gray);
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #0b1f33;
+            color: white;
+            padding: 60px 25px 25px;
+        }
+
+        .footer-grid {
+            max-width: 1250px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: #aebdca;
+            max-width: 350px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #aebdca;
+            margin-bottom: 9px;
+            font-size: 14px;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            max-width: 1250px;
+            margin: 50px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            color: #8293a5;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid,
+            .feature-grid,
+            .business-grid,
+            .tourism-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .feature-image,
+            .business-image,
+            .tourism-image {
+                min-height: 350px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero-content h1 {
+                font-size: 45px;
+            }
+
+            .hero-content p {
+                font-size: 17px;
+            }
+
+            .intro h2,
+            .section-title h2,
+            .about-intro h2,
+            .feature-text h2,
+            .business h2,
+            .tourism-text h2,
+            .register h2,
+            .cta h2 {
+                font-size: 34px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 14px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <nav class="navbar">
+
+        <a href="#" class="logo">
+            Con<span>e</span>k
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#productos" data-i18n="nav_products">
+                    Productos
+                </a>
+            </li>
+
+            <li>
+                <a href="#quienes-somos" data-i18n="nav_about">
+                    ¿Quiénes somos?
+                </a>
+            </li>
+
+            <li>
+                <a href="#vive" data-i18n="nav_live">
+                    Vive y trabaja
+                </a>
+            </li>
+
+            <li>
+                <a href="#negocios" data-i18n="nav_business">
+                    Negocios e inversiones
+                </a>
+            </li>
+
+            <li>
+                <a href="#turismo" data-i18n="nav_tourism">
+                    Turismo
+                </a>
+            </li>
+
+            <li>
+                <a href="#contacto" data-i18n="nav_contact">
+                    Contacto
+                </a>
+            </li>
+
+        </ul>
+
+        <select id="languageSelect" class="language-select">
+
+            <option value="es">🇪🇸 Español</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="it">🇮🇹 Italiano</option>
+
+        </select>
+
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            CONEK
+        </p>
+
+        <h1 data-i18n="hero_title">
+            Conecta tu vida con nuevas posibilidades en Perú.
+        </h1>
+
+        <p data-i18n="hero_text">
+            Vive, trabaja, invierte y descubre Perú con acompañamiento
+            para personas, empresas y viajeros que buscan dar el siguiente paso.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#productos" class="btn btn-primary" data-i18n="hero_button">
+                Conoce nuestros servicios
+            </a>
+
+            <a href="#contacto" class="btn btn-outline" data-i18n="contact_button">
+                Contáctanos
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section class="intro">
+
+    <div class="eyebrow" data-i18n="intro_eyebrow">
+        UNA PUERTA HACIA PERÚ
+    </div>
+
+    <h2 data-i18n="intro_title">
+        Una conexión entre personas, negocios y experiencias.
+    </h2>
+
+    <p data-i18n="intro_text">
+        Conek nace para facilitar el encuentro entre personas del mundo
+        y las posibilidades que ofrece Perú, acompañando cada proceso
+        de manera práctica y cercana.
+    </p>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="products" id="productos">
+
+    <div class="section-container">
+
+        <div class="section-title">
+
+            <div class="eyebrow">
+                CONEK
+            </div>
+
+            <h2 data-i18n="products_title">
+                Nuestros productos
+            </h2>
+
+            <p data-i18n="products_text">
+                Tres caminos diferentes para conectarte con Perú.
+            </p>
+
+        </div>
+
+
+        <div class="products-grid">
+
+            <!-- PRODUCT 1 -->
+
+            <article class="product-card">
+
+                <div
+                    class="product-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80');">
+                </div>
+
+                <div class="product-content">
+
+                    <div class="product-number">
+                        01
+                    </div>
+
+                    <h3 data-i18n="live_title">
+                        Vive y trabaja
+                    </h3>
+
+                    <p data-i18n="live_text">
+                        Acompañamiento para personas que desean vivir,
+                        trabajar o desarrollar una nueva etapa en Perú.
+                    </p>
+
+                    <ul class="product-list">
+
+                        <li data-i18n="live_point1">
+                            Orientación para tu llegada
+                        </li>
+
+                        <li data-i18n="live_point2">
+                            Conexión con empresas
+                        </li>
+
+                        <li data-i18n="live_point3">
+                            Información para tu estancia
+                        </li>
+
+                        <li data-i18n="live_point4">
+                            Integración y vida cotidiana
+                        </li>
+
+                    </ul>
+
+                    <a href="#vive" class="product-link" data-i18n="learn_more">
+                        Conocer más →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+
+            <article class="product-card">
+
+                <div
+                    class="product-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80');">
+                </div>
+
+                <div class="product-content">
+
+                    <div class="product-number">
+                        02
+                    </div>
+
+                    <h3 data-i18n="business_title">
+                        Negocios e inversiones
+                    </h3>
+
+                    <p data-i18n="business_text">
+                        Conectamos a personas y empresas extranjeras
+                        con oportunidades para hacer negocios en Perú.
+                    </p>
+
+                    <ul class="product-list">
+
+                        <li data-i18n="business_point1">
+                            Constitución de empresas
+                        </li>
+
+                        <li data-i18n="business_point2">
+                            RUC y orientación empresarial
+                        </li>
+
+                        <li data-i18n="business_point3">
+                            Inversiones y activos
+                        </li>
+
+                        <li data-i18n="business_point4">
+                            Conexión con profesionales
+                        </li>
+
+                    </ul>
+
+                    <a href="#negocios" class="product-link" data-i18n="learn_more">
+                        Conocer más →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+
+            <article class="product-card">
+
+                <div
+                    class="product-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=1200&q=80');">
+                </div>
+
+                <div class="product-content">
+
+                    <div class="product-number">
+                        03
+                    </div>
+
+                    <h3 data-i18n="tourism_title">
+                        Turismo y experiencias
+                    </h3>
+
+                    <p data-i18n="tourism_text">
+                        Descubre Perú de una manera práctica, personalizada
+                        y adaptada a tu tiempo y presupuesto.
+                    </p>
+
+                    <ul class="product-list">
+
+                        <li data-i18n="tourism_point1">
+                            Planificación de viajes
+                        </li>
+
+                        <li data-i18n="tourism_point2">
+                            Recomendaciones personalizadas
+                        </li>
+
+                        <li data-i18n="tourism_point3">
+                            Alojamiento y transporte
+                        </li>
+
+                        <li data-i18n="tourism_point4">
+                            Experiencias en Perú
+                        </li>
+
+                    </ul>
+
+                    <a href="#turismo" class="product-link" data-i18n="learn_more">
+                        Conocer más →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUIENES SOMOS -->
+
+<section class="about" id="quienes-somos">
+
+    <div class="about-container">
+
+        <div class="about-intro">
+
+            <div class="eyebrow" data-i18n="about_eyebrow">
+                CONEK
+            </div>
+
+            <h2 data-i18n="about_title">
+                ¿Quiénes somos?
+            </h2>
+
+            <p data-i18n="about_text">
+                Somos una startup peruana que nace para facilitar la llegada
+                y adaptación de personas y empresas extranjeras a Perú.
+                Creemos que integrarse a un nuevo país no debería ser un
+                proceso complicado ni solitario. Por eso estamos construyendo
+                una comunidad que facilite las conexiones y genere relaciones
+                de confianza entre personas de diferentes países y el entorno peruano.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-card">
+
+                <h3 data-i18n="mission_title">
+                    Misión
+                </h3>
+
+                <p data-i18n="mission_text">
+                    Conectar a personas y empresas extranjeras con Perú.
+                    Nuestra finalidad es ser la mano amiga y el socio confiable
+                    de quienes desean vivir, trabajar, hacer turismo o invertir
+                    en nuestro país, ofreciendo un acompañamiento seguro,
+                    cercano y estratégico en cada etapa de su integración.
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <h3 data-i18n="vision_title">
+                    Visión
+                </h3>
+
+                <p data-i18n="vision_text">
+                    Construir una comunidad sólida y acogedora que elimine
+                    las barreras culturales, legales y empresariales para
+                    quienes llegan a Perú. Queremos ser el aliado integral
+                    que acompaña tanto a personas como a empresas en su
+                    proceso de integración, ofreciendo confianza, cercanía
+                    y soluciones estratégicas que permitan vivir, trabajar,
+                    invertir y disfrutar de nuestro país sin obstáculos.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- VIVE Y TRABAJA -->
+
+<section class="feature" id="vive">
+
+    <div class="feature-grid">
+
+        <div class="feature-image"></div>
+
+        <div class="feature-text">
+
+            <div class="eyebrow">
+                01 · CONEK
+            </div>
+
+            <h2 data-i18n="live_section_title">
+                Vive y trabaja en Perú.
+            </h2>
+
+            <p data-i18n="live_section_text">
+                Si estás pensando en quedarte en Perú durante algunos meses
+                o comenzar una nueva etapa, te ayudamos a entender el entorno
+                y encontrar conexiones útiles.
+            </p>
+
+            <ul class="feature-points">
+
+                <li>
+                    <strong data-i18n="live_section_1_title">
+                        Llegada
+                    </strong>
+
+                    <span data-i18n="live_section_1_text">
+                        Orientación práctica para instalarte.
+                    </span>
+                </li>
+
+                <li>
+                    <strong data-i18n="live_section_2_title">
+                        Trabajo
+                    </strong>
+
+                    <span data-i18n="live_section_2_text">
+                        Conexión con empresas según tu perfil.
+                    </span>
+                </li>
+
+                <li>
+                    <strong data-i18n="live_section_3_title">
+                        Vida cotidiana
+                    </strong>
+
+                    <span data-i18n="live_section_3_text">
+                        Información para moverte, comprar y adaptarte.
+                    </span>
+                </li>
+
+            </ul>
+
+            <a href="#registro" class="btn btn-primary" data-i18n="start_button">
+                Empezar
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NEGOCIOS -->
+
+<section class="business" id="negocios">
+
+    <div class="business-grid">
+
+        <div>
+
+            <div class="eyebrow">
+                02 · CONEK
+            </div>
+
+            <h2 data-i18n="business_section_title">
+                Negocios e inversiones.
+            </h2>
+
+            <p data-i18n="business_section_text">
+                Perú puede ser un nuevo mercado, una nueva operación
+                o el lugar donde comenzar un proyecto.
+            </p>
+
+            <ul class="business-list">
+
+                <li data-i18n="business_section_1">
+                    Crear una empresa en Perú
+                </li>
+
+                <li data-i18n="business_section_2">
+                    Orientación para obtener RUC y licencias
+                </li>
+
+                <li data-i18n="business_section_3">
+                    Explorar inversiones y adquisición de activos
+                </li>
+
+                <li data-i18n="business_section_4">
+                    Conectar con profesionales y empresas locales
+                </li>
+
+                <li data-i18n="business_section_5">
+                    Acompañamiento para empresas extranjeras
+                </li>
+
+            </ul>
+
+            <br>
+
+            <a href="#registro" class="btn btn-primary" data-i18n="business_button">
+                Quiero invertir
+            </a>
+
+        </div>
+
+        <div class="business-image"></div>
+
+    </div>
+
+</section>
+
+
+<!-- TURISMO -->
+
+<section class="tourism" id="turismo">
+
+    <div class="tourism-grid">
+
+        <div class="tourism-image"></div>
+
+        <div class="tourism-text">
+
+            <div class="eyebrow">
+                03 · CONEK
+            </div>
+
+            <h2 data-i18n="tourism_section_title">
+                Turismo y experiencias.
+            </h2>
+
+            <p data-i18n="tourism_section_text">
+                No todos quieren viajar de la misma manera.
+                Por eso te ayudamos a construir una experiencia
+                adaptada a tus intereses, tiempo y presupuesto.
+            </p>
+
+            <p data-i18n="tourism_section_text2">
+                Desde una primera visita hasta una estadía más prolongada,
+                encontrarás orientación para conocer Perú con mayor facilidad.
+            </p>
+
+            <a href="#registro" class="btn btn-primary" data-i18n="tourism_button">
+                Planificar mi viaje
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- REGISTRO / CUESTIONARIO -->
+
+<section class="register" id="registro">
+
+    <div class="register-container">
+
+        <div class="eyebrow" data-i18n="register_eyebrow">
+            CONECTEMOS
+        </div>
+
+        <h2 data-i18n="register_title">
+            Cuéntanos qué estás buscando.
+        </h2>
+
+        <p data-i18n="register_text">
+            Completa un breve cuestionario para conocer mejor tu situación,
+            tus intereses y lo que buscas en Perú.
+        </p>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9FRpyeEKNH7-abMF7Q11On6W6yonPBe7IZQBAh_rxh2xpmA/viewform?usp=header" class="btn btn-primary" data-i18n="register_button">
+            Empezar cuestionario
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta" id="contacto">
+
+    <div class="section-container">
+
+        <div class="eyebrow">
+            CONEK
+        </div>
+
+        <h2 data-i18n="cta_title">
+            ¿Listo para conectar con Perú?
+        </h2>
+
+        <p data-i18n="cta_text">
+            Cuéntanos qué estás buscando y te mostraremos
+            el camino más adecuado.
+        </p>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9FRpyeEKNH7-abMF7Q11On6W6yonPBe7IZQBAh_rxh2xpmA/viewform?usp=header" target="_blank" class="btn btn-primary" data-i18n="cta_button">    
+            Contactar
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+
+            <h3>
+                Con<span style="color:#f2a900;">e</span>k
+            </h3>
+
+            <p data-i18n="footer_text">
+                Conectamos personas, empresas e ideas con Perú.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4 data-i18n="footer_products">
+                Productos
+            </h4>
+
+            <a href="#vive" data-i18n="live_title">
+                Vive y trabaja
+            </a>
+
+            <a href="#negocios" data-i18n="business_title">
+                Negocios e inversiones
+            </a>
+
+            <a href="#turismo" data-i18n="tourism_title">
+                Turismo y experiencias
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4 data-i18n="footer_company">
+                Conek
+            </h4>
+
+            <a href="#quienes-somos" data-i18n="nav_about">
+                ¿Quiénes somos?
+            </a>
+
+            <a href="#registro" data-i18n="footer_register">
+                Registro
+            </a>
+
+            <a href="#contacto" data-i18n="footer_contact">
+                Contacto
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 Conek. Todos los derechos reservados.
+    </div>
+
+</footer>
+
+
+<script>
+
+    /* MENU MOBILE */
+
+    function toggleMenu() {
+
+        const menu = document.querySelector(".nav-links");
+
+        if (menu.style.display === "flex") {
+
+            menu.style.display = "none";
+
+        } else {
+
+            menu.style.display = "flex";
+            menu.style.flexDirection = "column";
+            menu.style.position = "absolute";
+            menu.style.top = "70px";
+            menu.style.left = "0";
+            menu.style.right = "0";
+            menu.style.background = "white";
+            menu.style.padding = "25px";
+
+        }
+
+    }
+
+
+    /* TRADUCCIONES */
+
+    const translations = {
+
+        es: {
+
+            nav_products: "Productos",
+            nav_about: "¿Quiénes somos?",
+            nav_live: "Vive y trabaja",
+            nav_business: "Negocios e inversiones",
+            nav_tourism: "Turismo",
+            nav_contact: "Contacto",
+
+            hero_title: "Conecta tu vida con nuevas posibilidades en Perú.",
+            hero_text: "Vive, trabaja, invierte y descubre Perú con acompañamiento para personas, empresas y viajeros que buscan dar el siguiente paso.",
+            hero_button: "Conoce nuestros servicios",
+            contact_button: "Contáctanos",
+
+            intro_eyebrow: "UNA PUERTA HACIA PERÚ",
+            intro_title: "Una conexión entre personas, negocios y experiencias.",
+            intro_text: "Conek nace para facilitar el encuentro entre personas del mundo y las posibilidades que ofrece Perú, acompañando cada proceso de manera práctica y cercana.",
+
+            products_title: "Nuestros productos",
+            products_text: "Tres caminos diferentes para conectarte con Perú.",
+
+            live_title: "Vive y trabaja",
+            live_text: "Acompañamiento para personas que desean vivir, trabajar o desarrollar una nueva etapa en Perú.",
+            live_point1: "Orientación para tu llegada",
+            live_point2: "Conexión con empresas",
+            live_point3: "Información para tu estancia",
+            live_point4: "Integración y vida cotidiana",
+
+            business_title: "Negocios e inversiones",
+            business_text: "Conectamos a personas y empresas extranjeras con oportunidades para hacer negocios en Perú.",
+            business_point1: "Constitución de empresas",
+            business_point2: "RUC y orientación empresarial",
+            business_point3: "Inversiones y activos",
+            business_point4: "Conexión con profesionales",
+
+            tourism_title: "Turismo y experiencias",
+            tourism_text: "Descubre Perú de una manera práctica, personalizada y adaptada a tu tiempo y presupuesto.",
+            tourism_point1: "Planificación de viajes",
+            tourism_point2: "Recomendaciones personalizadas",
+            tourism_point3: "Alojamiento y transporte",
+            tourism_point4: "Experiencias en Perú",
+
+            learn_more: "Conocer más →",
+
+            about_eyebrow: "CONOCENOS",
+            about_title: "¿Quiénes somos?",
+            about_text: "Somos una startup peruana que nace para facilitar la llegada y adaptación de personas y empresas extranjeras a Perú. Creemos que integrarse a un nuevo país no debería ser un proceso complicado ni solitario. Por eso estamos construyendo una comunidad que facilite las conexiones y genere relaciones de confianza entre personas de diferentes países y el entorno peruano.",
+
+            mission_title: "Misión",
+            mission_text: "Conectar a personas y empresas extranjeras con Perú. Nuestra finalidad es ser la mano amiga y el socio confiable de quienes desean vivir, trabajar, hacer turismo o invertir en nuestro país, ofreciendo un acompañamiento seguro, cercano y estratégico en cada etapa de su integración.",
+
+            vision_title: "Visión",
+            vision_text: "Construir una comunidad sólida y acogedora que elimine las barreras culturales, legales y empresariales para quienes llegan a Perú. Queremos ser el aliado integral que acompaña tanto a personas como a empresas en su proceso de integración, ofreciendo confianza, cercanía y soluciones estratégicas que permitan vivir, trabajar, invertir y disfrutar de nuestro país sin obstáculos.",
+
+            live_section_title: "Vive y trabaja en Perú.",
+            live_section_text: "Si estás pensando en quedarte en Perú durante algunos meses o comenzar una nueva etapa, te ayudamos a entender el entorno y encontrar conexiones útiles.",
+            live_section_1_title: "Llegada",
+            live_section_1_text: "Orientación práctica para instalarte.",
+            live_section_2_title: "Trabajo",
+            live_section_2_text: "Conexión con empresas según tu perfil.",
+            live_section_3_title: "Vida cotidiana",
+            live_section_3_text: "Información para moverte, comprar y adaptarte.",
+            start_button: "Empezar",
+
+            business_section_title: "Negocios e inversiones.",
+            business_section_text: "Perú puede ser un nuevo mercado, una nueva operación o el lugar donde comenzar un proyecto.",
+            business_section_1: "Crear una empresa en Perú",
+            business_section_2: "Orientación para obtener RUC y licencias",
+            business_section_3: "Explorar inversiones y adquisición de activos",
+            business_section_4: "Conectar con profesionales y empresas locales",
+            business_section_5: "Acompañamiento para empresas extranjeras",
+            business_button: "Quiero invertir",
+
+            tourism_section_title: "Turismo y experiencias.",
+            tourism_section_text: "No todos quieren viajar de la misma manera. Por eso te ayudamos a construir una experiencia adaptada a tus intereses, tiempo y presupuesto.",
+            tourism_section_text2: "Desde una primera visita hasta una estadía más prolongada, encontrarás orientación para conocer Perú con mayor facilidad.",
+            tourism_button: "Planificar mi viaje",
+
+            register_eyebrow: "CONECTEMOS",
+            register_title: "Cuéntanos qué estás buscando.",
+            register_text: "Completa un breve cuestionario para conocer mejor tu situación, tus intereses y lo que buscas en Perú.",
+            register_button: "Empezar cuestionario",
+
+            cta_title: "¿Listo para conectar con Perú?",
+            cta_text: "Cuéntanos qué estás buscando y te mostraremos el camino más adecuado.",
+            cta_button: "Contactar",
+
+            footer_text: "Conectamos personas, empresas e ideas con Perú.",
+            footer_products: "Productos",
+            footer_company: "Conek",
+            footer_register: "Registro",
+            footer_contact: "Contacto"
+
+        },
+
+        en: {
+
+            nav_products: "Products",
+            nav_about: "Who are we?",
+            nav_live: "Live & Work",
+            nav_business: "Business & Investment",
+            nav_tourism: "Tourism",
+            nav_contact: "Contact",
+
+            hero_title: "Connect your life with new possibilities in Peru.",
+            hero_text: "Live, work, invest and discover Peru with practical support for people, companies and travelers.",
+            hero_button: "Explore our services",
+            contact_button: "Contact us",
+
+            intro_eyebrow: "A GATEWAY TO PERU",
+            intro_title: "A connection between people, business and experiences.",
+            intro_text: "Conek connects people from around the world with the possibilities Peru has to offer.",
+
+            products_title: "Our products",
+            products_text: "Three different ways to connect with Peru.",
+
+            live_title: "Live & Work",
+            live_text: "Support for people who want to live, work or start a new chapter in Peru.",
+            live_point1: "Arrival guidance",
+            live_point2: "Business connections",
+            live_point3: "Stay information",
+            live_point4: "Daily life support",
+
+            business_title: "Business & Investment",
+            business_text: "We connect foreign people and companies with opportunities to do business in Peru.",
+            business_point1: "Company formation",
+            business_point2: "Tax ID and business guidance",
+            business_point3: "Investments and assets",
+            business_point4: "Professional connections",
+
+            tourism_title: "Tourism & Experiences",
+            tourism_text: "Discover Peru in a practical and personalized way.",
+            tourism_point1: "Travel planning",
+            tourism_point2: "Personalized recommendations",
+            tourism_point3: "Accommodation and transport",
+            tourism_point4: "Peruvian experiences",
+
+            learn_more: "Learn more →",
+
+            about_eyebrow: "ABOUT US",
+            about_title: "Who are we?",
+            about_text: "We are a Peruvian startup created to facilitate the arrival and adaptation of foreign people and companies in Peru. We believe that integrating into a new country should not be a complicated or lonely process. That is why we are building a community that facilitates connections and creates relationships of trust between people from different countries and the Peruvian environment.",
+
+            mission_title: "Mission",
+            mission_text: "To connect foreign people and companies with Peru. Our purpose is to be a helping hand and a trusted partner for those who want to live, work, travel or invest in our country, providing safe, close and strategic support throughout their integration.",
+
+            vision_title: "Vision",
+            vision_text: "To build a strong and welcoming community that removes cultural, legal and business barriers for those arriving in Peru. We want to be the comprehensive ally that supports both people and companies throughout their integration process.",
+
+            live_section_title: "Live and work in Peru.",
+            live_section_text: "If you are thinking about staying in Peru for a few months or starting a new chapter, we can help you understand the environment and find useful connections.",
+            live_section_1_title: "Arrival",
+            live_section_1_text: "Practical guidance to settle in.",
+            live_section_2_title: "Work",
+            live_section_2_text: "Connections with companies according to your profile.",
+            live_section_3_title: "Daily life",
+            live_section_3_text: "Information to move, shop and adapt.",
+            start_button: "Get started",
+
+            business_section_title: "Business and investment.",
+            business_section_text: "Peru can be a new market, a new operation or the place to start a project.",
+            business_section_1: "Create a company in Peru",
+            business_section_2: "Guidance for tax ID and licenses",
+            business_section_3: "Explore investments and assets",
+            business_section_4: "Connect with local professionals and companies",
+            business_section_5: "Support for foreign companies",
+            business_button: "I want to invest",
+
+            tourism_section_title: "Tourism and experiences.",
+            tourism_section_text: "Not everyone wants to travel in the same way. We help you build an experience adapted to your interests, time and budget.",
+            tourism_section_text2: "From a first visit to a longer stay, we provide practical guidance to discover Peru.",
+            tourism_button: "Plan my trip",
+
+            register_eyebrow: "LET'S CONNECT",
+            register_title: "Tell us what you are looking for.",
+            register_text: "Complete a short questionnaire so we can better understand your situation, interests and what you are looking for in Peru.",
+            register_button: "Start questionnaire",
+
+            cta_title: "Ready to connect with Peru?",
+            cta_text: "Tell us what you are looking for and we will show you the most suitable path.",
+            cta_button: "Contact",
+
+            footer_text: "Connecting people, companies and ideas with Peru.",
+            footer_products: "Products",
+            footer_company: "Conek",
+            footer_register: "Registration",
+            footer_contact: "Contact"
+
+        },
+
+        ru: {
+
+            nav_products: "Продукты",
+            nav_about: "Кто мы?",
+            nav_live: "Живи и работай",
+            nav_business: "Бизнес и инвестиции",
+            nav_tourism: "Туризм",
+            nav_contact: "Контакты",
+
+            hero_title: "Соедини свою жизнь с новыми возможностями в Перу.",
+            hero_text: "Живи, работай, инвестируй и открывай Перу с нашей поддержкой.",
+            hero_button: "Наши услуги",
+            contact_button: "Связаться с нами",
+
+            intro_eyebrow: "ПУТЬ В ПЕРУ",
+            intro_title: "Связь между людьми, бизнесом и впечатлениями.",
+            intro_text: "Conek помогает людям со всего мира находить возможности в Перу.",
+
+            products_title: "Наши продукты",
+            products_text: "Три разных пути для связи с Перу.",
+
+            live_title: "Живи и работай",
+            live_text: "Помощь людям, которые хотят жить и работать в Перу.",
+            live_point1: "Помощь с приездом",
+            live_point2: "Связь с компаниями",
+            live_point3: "Информация о пребывании",
+            live_point4: "Повседневная жизнь",
+
+            business_title: "Бизнес и инвестиции",
+            business_text: "Мы соединяем иностранных людей и компании с возможностями для бизнеса в Перу.",
+            business_point1: "Создание компаний",
+            business_point2: "RUC и бизнес-консультации",
+            business_point3: "Инвестиции и активы",
+            business_point4: "Связь со специалистами",
+
+            tourism_title: "Туризм и впечатления",
+            tourism_text: "Открой Перу практично и индивидуально.",
+            tourism_point1: "Планирование поездок",
+            tourism_point2: "Индивидуальные рекомендации",
+            tourism_point3: "Жильё и транспорт",
+            tourism_point4: "Впечатления в Перу",
+
+            learn_more: "Узнать больше →",
+
+            about_eyebrow: "О НАС",
+            about_title: "Кто мы?",
+            about_text: "Мы перуанский стартап, созданный для облегчения приезда и адаптации иностранных людей и компаний в Перу. Мы считаем, что интеграция в новую страну не должна быть сложной или одинокой.",
+
+            mission_title: "Миссия",
+            mission_text: "Соединять иностранных людей и компании с Перу и быть надёжным партнёром для тех, кто хочет жить, работать, путешествовать или инвестировать в нашей стране.",
+
+            vision_title: "Видение",
+            vision_text: "Создать сильное и гостеприимное сообщество, которое помогает преодолевать культурные, юридические и деловые барьеры для людей и компаний, приезжающих в Перу.",
+
+            live_section_title: "Живи и работай в Перу.",
+            live_section_text: "Если ты хочешь пожить в Перу несколько месяцев или начать новый этап жизни, мы поможем разобраться в стране и найти полезные связи.",
+            live_section_1_title: "Приезд",
+            live_section_1_text: "Практическая помощь с переездом.",
+            live_section_2_title: "Работа",
+            live_section_2_text: "Связь с компаниями в соответствии с твоим профилем.",
+            live_section_3_title: "Повседневная жизнь",
+            live_section_3_text: "Информация о жизни и адаптации.",
+            start_button: "Начать",
+
+            business_section_title: "Бизнес и инвестиции.",
+            business_section_text: "Перу может стать новым рынком или местом для запуска проекта.",
+            business_section_1: "Создание компании в Перу",
+            business_section_2: "RUC и лицензии",
+            business_section_3: "Инвестиции и активы",
+            business_section_4: "Связь с местными специалистами",
+            business_section_5: "Помощь иностранным компаниям",
+            business_button: "Я хочу инвестировать",
+
+            tourism_section_title: "Туризм и впечатления.",
+            tourism_section_text: "Каждый путешествует по-своему. Мы поможем создать поездку под твои интересы, время и бюджет.",
+            tourism_section_text2: "От первого путешествия до длительного пребывания.",
+            tourism_button: "Планировать поездку",
+
+            register_eyebrow: "ДАВАЙТЕ СВЯЖЕМСЯ",
+            register_title: "Расскажи, что ты ищешь.",
+            register_text: "Заполни небольшую анкету, чтобы мы лучше поняли твою ситуацию, интересы и цели в Перу.",
+            register_button: "Начать анкету",
+
+            cta_title: "Готов открыть для себя Перу?",
+            cta_text: "Расскажи, что ты ищешь, и мы покажем подходящий путь.",
+            cta_button: "Связаться",
+
+            footer_text: "Соединяем людей, компании и идеи с Перу.",
+            footer_products: "Продукты",
+            footer_company: "Conek",
+            footer_register: "Регистрация",
+            footer_contact: "Контакты"
+
+        },
+
+        de: {
+
+            nav_products: "Produkte",
+            nav_about: "Wer sind wir?",
+            nav_live: "Leben & Arbeiten",
+            nav_business: "Geschäft & Investitionen",
+            nav_tourism: "Tourismus",
+            nav_contact: "Kontakt",
+
+            hero_title: "Verbinde dein Leben mit neuen Möglichkeiten in Peru.",
+            hero_text: "Lebe, arbeite, investiere und entdecke Peru mit unserer Unterstützung.",
+            hero_button: "Unsere Leistungen",
+            contact_button: "Kontaktieren",
+
+            intro_eyebrow: "EIN WEG NACH PERU",
+            intro_title: "Eine Verbindung zwischen Menschen, Unternehmen und Erlebnissen.",
+            intro_text: "Conek verbindet Menschen aus aller Welt mit den Möglichkeiten in Peru.",
+
+            products_title: "Unsere Produkte",
+            products_text: "Drei Wege, Peru zu entdecken und sich mit dem Land zu verbinden.",
+
+            live_title: "Leben & Arbeiten",
+            live_text: "Unterstützung für Menschen, die in Peru leben und arbeiten möchten.",
+            live_point1: "Unterstützung bei der Ankunft",
+            live_point2: "Verbindung mit Unternehmen",
+            live_point3: "Informationen zum Aufenthalt",
+            live_point4: "Alltag und Integration",
+
+            business_title: "Geschäft & Investitionen",
+            business_text: "Wir verbinden ausländische Menschen und Unternehmen mit Geschäftsmöglichkeiten in Peru.",
+            business_point1: "Unternehmensgründung",
+            business_point2: "Steuer-ID und Beratung",
+            business_point3: "Investitionen und Vermögenswerte",
+            business_point4: "Verbindungen zu Fachleuten",
+
+            tourism_title: "Tourismus & Erlebnisse",
+            tourism_text: "Entdecke Peru praktisch und individuell.",
+            tourism_point1: "Reiseplanung",
+            tourism_point2: "Persönliche Empfehlungen",
+            tourism_point3: "Unterkunft und Transport",
+            tourism_point4: "Erlebnisse in Peru",
+
+            learn_more: "Mehr erfahren →",
+
+            about_eyebrow: "ÜBER UNS",
+            about_title: "Wer sind wir?",
+            about_text: "Wir sind ein peruanisches Startup, das die Ankunft und Integration ausländischer Menschen und Unternehmen in Peru erleichtern möchte.",
+
+            mission_title: "Mission",
+            mission_text: "Ausländische Menschen und Unternehmen mit Peru zu verbinden und ein zuverlässiger Partner für diejenigen zu sein, die in unserem Land leben, arbeiten, reisen oder investieren möchten.",
+
+            vision_title: "Vision",
+            vision_text: "Eine starke und einladende Gemeinschaft aufzubauen, die kulturelle, rechtliche und geschäftliche Barrieren für Menschen und Unternehmen in Peru abbaut.",
+
+            live_section_title: "Leben und arbeiten in Peru.",
+            live_section_text: "Wenn du darüber nachdenkst, einige Monate in Peru zu bleiben oder einen neuen Lebensabschnitt zu beginnen, helfen wir dir, dich zurechtzufinden.",
+            live_section_1_title: "Ankunft",
+            live_section_1_text: "Praktische Unterstützung bei der Ankunft.",
+            live_section_2_title: "Arbeit",
+            live_section_2_text: "Verbindungen zu Unternehmen passend zu deinem Profil.",
+            live_section_3_title: "Alltag",
+            live_section_3_text: "Informationen für dein tägliches Leben.",
+            start_button: "Starten",
+
+            business_section_title: "Geschäft und Investitionen.",
+            business_section_text: "Peru kann ein neuer Markt oder der Ort sein, an dem du dein Projekt startest.",
+            business_section_1: "Unternehmen in Peru gründen",
+            business_section_2: "Steuer-ID und Lizenzen",
+            business_section_3: "Investitionen und Vermögenswerte",
+            business_section_4: "Verbindungen zu lokalen Fachleuten",
+            business_section_5: "Unterstützung für ausländische Unternehmen",
+            business_button: "Ich möchte investieren",
+
+            tourism_section_title: "Tourismus und Erlebnisse.",
+            tourism_section_text: "Wir helfen dir, eine Reise nach deinen Interessen, deiner Zeit und deinem Budget zu gestalten.",
+            tourism_section_text2: "Von deinem ersten Besuch bis zu einem längeren Aufenthalt.",
+            tourism_button: "Meine Reise planen",
+
+            register_eyebrow: "VERBINDEN WIR UNS",
+            register_title: "Erzähle uns, wonach du suchst.",
+            register_text: "Fülle einen kurzen Fragebogen aus, damit wir deine Situation und deine Ziele in Peru besser verstehen.",
+            register_button: "Fragebogen starten",
+
+            cta_title: "Bereit, Peru zu entdecken?",
+            cta_text: "Erzähle uns, wonach du suchst.",
+            cta_button: "Kontakt",
+
+            footer_text: "Wir verbinden Menschen, Unternehmen und Ideen mit Peru.",
+            footer_products: "Produkte",
+            footer_company: "Conek",
+            footer_register: "Registrierung",
+            footer_contact: "Kontakt"
+
+        },
+
+        it: {
+
+            nav_products: "Servizi",
+            nav_about: "Chi siamo?",
+            nav_live: "Vivi e lavora",
+            nav_business: "Affari e investimenti",
+            nav_tourism: "Turismo",
+            nav_contact: "Contatti",
+
+            hero_title: "Collega la tua vita a nuove possibilità in Perù.",
+            hero_text: "Vivi, lavora, investi e scopri il Perù con il nostro supporto.",
+            hero_button: "Scopri i nostri servizi",
+            contact_button: "Contattaci",
+
+            intro_eyebrow: "UNA PORTA VERSO IL PERÙ",
+            intro_title: "Una connessione tra persone, imprese ed esperienze.",
+            intro_text: "Conek collega persone da tutto il mondo alle opportunità del Perù.",
+
+            products_title: "I nostri prodotti",
+            products_text: "Tre modi diversi per entrare in contatto con il Perù.",
+
+            live_title: "Vivi e lavora",
+            live_text: "Supporto per chi desidera vivere e lavorare in Perù.",
+            live_point1: "Assistenza all'arrivo",
+            live_point2: "Collegamento con aziende",
+            live_point3: "Informazioni sul soggiorno",
+            live_point4: "Vita quotidiana",
+
+            business_title: "Affari e investimenti",
+            business_text: "Colleghiamo persone e aziende straniere con opportunità di business in Perù.",
+            business_point1: "Costituzione di aziende",
+            business_point2: "RUC e orientamento",
+            business_point3: "Investimenti e attività",
+            business_point4: "Contatti professionali",
+
+            tourism_title: "Turismo ed esperienze",
+            tourism_text: "Scopri il Perù in modo pratico e personalizzato.",
+            tourism_point1: "Pianificazione del viaggio",
+            tourism_point2: "Consigli personalizzati",
+            tourism_point3: "Alloggio e trasporti",
+            tourism_point4: "Esperienze in Perù",
+
+            learn_more: "Scopri di più →",
+
+            about_eyebrow: "CHI SIAMO",
+            about_title: "Chi siamo?",
+            about_text: "Siamo una startup peruviana nata per facilitare l'arrivo e l'integrazione di persone e aziende straniere in Perù. Crediamo che integrarsi in un nuovo Paese non debba essere un processo complicato o solitario.",
+
+            mission_title: "Missione",
+            mission_text: "Collegare persone e aziende straniere con il Perù ed essere un partner affidabile per chi desidera vivere, lavorare, viaggiare o investire nel nostro Paese.",
+
+            vision_title: "Visione",
+            vision_text: "Costruire una comunità forte e accogliente che elimini le barriere culturali, legali e aziendali per chi arriva in Perù.",
+
+            live_section_title: "Vivi e lavora in Perù.",
+            live_section_text: "Se stai pensando di rimanere in Perù per alcuni mesi o iniziare una nuova fase della tua vita, possiamo aiutarti a conoscere l'ambiente e trovare connessioni utili.",
+            live_section_1_title: "Arrivo",
+            live_section_1_text: "Assistenza pratica per stabilirti.",
+            live_section_2_title: "Lavoro",
+            live_section_2_text: "Connessioni con aziende in base al tuo profilo.",
+            live_section_3_title: "Vita quotidiana",
+            live_section_3_text: "Informazioni per muoverti e adattarti.",
+            start_button: "Inizia",
+
+            business_section_title: "Affari e investimenti.",
+            business_section_text: "Il Perù può essere un nuovo mercato o il luogo dove iniziare un progetto.",
+            business_section_1: "Creare un'azienda in Perù",
+            business_section_2: "RUC e licenze",
+            business_section_3: "Investimenti e attività",
+            business_section_4: "Connessioni con professionisti locali",
+            business_section_5: "Supporto per aziende straniere",
+            business_button: "Voglio investire",
+
+            tourism_section_title: "Turismo ed esperienze.",
+            tourism_section_text: "Ti aiutiamo a creare un'esperienza adatta ai tuoi interessi, al tuo tempo e al tuo budget.",
+            tourism_section_text2: "Dalla prima visita a un soggiorno più lungo.",
+            tourism_button: "Pianifica il mio viaggio",
+
+            register_eyebrow: "CONNETTIAMOCI",
+            register_title: "Raccontaci cosa stai cercando.",
+            register_text: "Compila un breve questionario per permetterci di conoscere meglio la tua situazione e i tuoi obiettivi in Perù.",
+            register_button: "Inizia il questionario",
+
+            cta_title: "Pronto a connetterti con il Perù?",
+            cta_text: "Raccontaci cosa stai cercando.",
+            cta_button: "Contatti",
+
+            footer_text: "Colleghiamo persone, aziende e idee con il Perù.",
+            footer_products: "Prodotti",
+            footer_company: "Conek",
+            footer_register: "Registrazione",
+            footer_contact: "Contatti"
+
+        }
+
+    };
+
+
+    /* CAMBIO DE IDIOMA */
+
+    const languageSelect =
+        document.getElementById("languageSelect");
+
+    languageSelect.addEventListener("change", function () {
+
+        const language = this.value;
+
+        const elements =
+            document.querySelectorAll("[data-i18n]");
+
+        elements.forEach(function(element) {
+
+            const key = element.getAttribute("data-i18n");
+
+            if (translations[language][key]) {
+
+                element.textContent =
+                    translations[language][key];
+
+            }
+
+        });
+
+        document.documentElement.lang = language;
+
+    });
+
+</script>
+
+</body>
+</html>
+```
